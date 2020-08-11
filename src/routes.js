@@ -12,7 +12,7 @@ router.get('/', async (request, response) => {
 
 // Criando um novo video usando o method post
 router.post('/post', (request, response) => {
-	const { title, url } = request.body;
+	const { title, url } = request.query;
 
 	const newVideo = mongoose.model('video')
 
@@ -44,17 +44,14 @@ router.delete('/delete?:id', (request, response) => {
 
 // Editando video com o method put
 router.put('/update?:id?:title?:url?:favorite', async (request, response) => {
+	// Parametos vindo da url
 	const { id, title, url, favorite } = request.query;
-	const videoUpdate = mongoose.model('video')
+	const videoUpdate = mongoose.model('video') 
 
-	const Convert = elem => {
-		const data = elem.toString()
-		return data;
-	} 
-
+	// Fazendo o update do registro
 	await videoUpdate.updateOne({ "_id" : id }, { 
-				title: Convert(title), 
-				url: Convert(url), 
+				title: title, 
+				url: url, 
 				favorite: favorite == '' ? true : false
 			}).then(() => {
 				response.json(request.query)
