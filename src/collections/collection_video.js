@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const videoSchema = mongoose.Schema({
 	title : {
 		type: String,
-		require : true
+		required: true
 	},
 	url : {
 		type: String,
-		require: true
+		required: true
 	},
 	favorite : {
 		type: Boolean,
