@@ -5,13 +5,13 @@
 
 &nbsp;
 
-FINALIDADE
+### FINALIDADE
 
 Essa api foi criada para alimentar uma aplicação que irá ser desenvolvida em React JS, essa aplicação irá funcionar como um crud simples para armazenamento de videos do youtube, que serão classificados entre abas, tendo uma aba com todos os videos e outra somente com os favoritos.
 
 &nbsp;
 
-Ferramentas utilizadas
+**Ferramentas utilizadas**
 
 - Node JS
 - Express
