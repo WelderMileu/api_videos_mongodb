@@ -52,7 +52,7 @@ router.put('/update?:id?:title?:url?:favorite', async (request, response) => {
 	await videoUpdate.updateOne({ "_id" : id }, { 
 				title: title, 
 				url: url, 
-				favorite: favorite == '' ? true : false
+				favorite: favorite == 'true' ? true : false
 			}).then(() => {
 				response.json(request.query)
 				console.log("Usuario de ID:" + id + " alterado com sucesso")
