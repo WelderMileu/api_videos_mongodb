@@ -11,17 +11,18 @@ router.get('/', async (request, response) => {
 })
 
 // Criando um novo video usando o method post
-router.post('/post', (request, response) => {
-	const { title, url } = request.query;
+router.post('/post?:title?:url?:favorite', (request, response) => {
+	const { title, url, favorite } = request.query;
 
 	const newVideo = mongoose.model('video')
 
 	new newVideo({
 		title,
-		url
+		url,
+		favorite
 	}).save().then(() => {
 		console.log("Video salvo na base de dados com sucesso")
-		response.json({ title, url })
+		response.json({ title, url, favorite })
 	}).catch(err => {
 		console.log("Erro ao salvar video na base de dados: " + err)
 		response.json({ erro: err })
@@ -62,4 +63,5 @@ router.put('/update?:id?:title?:url?:favorite', async (request, response) => {
 			})
 })
 
+// Exportando nossas rotas
 module.exports = router;
