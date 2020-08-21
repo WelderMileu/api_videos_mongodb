@@ -5,18 +5,19 @@ const video = require('./collections/collection_video.js')
 // Listando nossa collection usando o method get
 router.get('/', async (request, response) => {
 	const video = mongoose.model('video')
+
 	const list = await video.find({})
 	console.log(list)
 	response.json(list)
 })
 
 // Criando um novo video usando o method post
-router.post('/post?:title?:url?:favorite', (request, response) => {
-	const { title, url, favorite } = request.query;
-
+router.post('/post', async (request, response) => {
+	const { title, url, favorite } = request.body;
+	console.log(request.body)
 	const newVideo = mongoose.model('video')
 
-	new newVideo({
+	await new newVideo({
 		title,
 		url,
 		favorite

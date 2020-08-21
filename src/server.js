@@ -9,7 +9,7 @@ const collection_video = require('./collections/collection_video.js')
 const router = require('./routes.js')
 
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(router)
 
