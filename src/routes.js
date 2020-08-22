@@ -45,9 +45,9 @@ router.delete('/delete?:id', (request, response) => {
 })
 
 // Editando video com o method put
-router.put('/update?:id?:title?:url?:favorite', async (request, response) => {
+router.put('/update', async (request, response) => {
 	// Parametos vindo da url
-	const { id, title, url, favorite } = request.query;
+	const { id, title, url, favorite } = request.body;
 	const videoUpdate = mongoose.model('video') 
 
 	// Fazendo o update do registro
@@ -56,7 +56,7 @@ router.put('/update?:id?:title?:url?:favorite', async (request, response) => {
 				url: url, 
 				favorite: favorite == 'true' ? true : false
 			}).then(() => {
-				response.json(request.query)
+				response.json(request.body)
 				console.log("Usuario de ID:" + id + " alterado com sucesso")
 			}).catch(err => {
 				response.json({ err: err })
