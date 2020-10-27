@@ -18,5 +18,7 @@ Essa api foi criada para alimentar uma aplicação que irá ser desenvolvida em 
 - mongoose
 - Banco de Dados mongoDb Atlas
 
+> URL API: https://app-listvideo.herokuapp.com
+
 &nbsp;
 Api em desenvolvimento ...
